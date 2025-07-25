@@ -1,11 +1,11 @@
 import Die from "./Die.jsx";
 import Button from './Button.jsx';
 
-export default function Dice({ roll, setRoll, dice }) {
+export default function Dice({ inputs, setInputs }) {
     return (       
         <>
-            <Die roll={roll} />
-            <Button setRoll={setRoll} dice={dice} />
+            <Die inputs={inputs} setInputs={setInputs} />
+            <Button inputs={inputs} setInputs={setInputs} />
         </>
     )
 }
