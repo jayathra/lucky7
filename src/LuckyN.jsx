@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { rollDie, isWinner } from './utils.jsx'
 import Dice from './Dice.jsx';
 
-const target = 11;
+const target = 7;
 const numDie = 2;
 
 export default function LuckyN() {
@@ -12,9 +12,8 @@ export default function LuckyN() {
 
     return (
         <>
-            <h1>Lucky{target}</h1>
+            <h1>Lucky{target} {isWinner(roll, target) && <span>WINNER WINNER!</span>}</h1>
             <Dice roll={roll} setRoll={setRoll} />
-            {isWinner(roll, target) && <h3>WINNER WINNER!</h3>}
         </>
         
     )
