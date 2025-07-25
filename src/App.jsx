@@ -1,12 +1,12 @@
 import './App.css'
-import Die from './Die';
+import LuckyN from './LuckyN';
 
 function App() {
 
   return (
     <>
       <h1>LuckySe7en</h1>
-      <Die />
+      <LuckyN />
     </>
   )
 }
