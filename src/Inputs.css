@@ -1,3 +1,7 @@
 .inputs {
     margin-bottom: 30px;
 }
+
+label {
+    margin-right: 10px;
+}
