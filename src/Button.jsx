@@ -1,8 +1,8 @@
 import { rollDie } from "./utils";
 import './Button.css'
 
-export default function Button( {setRoll} ) {
+export default function Button( {setRoll, dice} ) {
     return (
-        <button onClick={() => setRoll(rollDie(2))}>Roll Die</button>
+        <button onClick={() => setRoll(rollDie(dice))}>Roll Die</button>
     )
 }
