@@ -5,7 +5,6 @@ function App() {
 
   return (
     <>
-      <h1>LuckySe7en</h1>
       <LuckyN />
     </>
   )
