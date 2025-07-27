@@ -1,20 +1,35 @@
 import './Inputs.css';
-import { rollDie } from './utils';
+import { rollDie, SIDE_PER_DIE } from './utils';
 
-export default function Inputs({ inputs, setInputs}) {
+export default function Inputs({inputs, setInputs}) {
+    function validateNumDiceAndUpdateInputs(numDice) {
+        const isValidNumDice = inputs.target < numDice || inputs.target > numDice * SIDE_PER_DIE;
+        setInputs({
+            ...inputs,
+            dice: numDice,
+            roll: rollDie(numDice),
+            target: isValidNumDice ? numDice : inputs.target
+        })
+    }
     
     return(
         <>
             <div>
-                <label htmlFor="target">Target</label>
-                <input id="target" min={inputs.dice} max={inputs.dice * 6} className="inputs" type="number" placeholder="target" value={inputs.target} onChange={(e)=>setInputs({...inputs, target: Number(e.target.value)})} />
+                <label htmlFor="targetInput">Target</label>
+                <input
+                    id="targetInput"
+                    min={inputs.dice}
+                    max={inputs.dice * SIDE_PER_DIE}
+                    className="inputs"
+                    type="number"
+                    placeholder="target"
+                    value={inputs.target}
+                    onChange={(e)=>setInputs({...inputs, target: Number(e.target.value)})} />
             </div>
             <div>
-                <label htmlFor="numDice">Number of Dice</label>
-                <input id="numDice" min="1" className="inputs" type="number" placeholder="number of dice" value={inputs.dice} onChange={(e)=> {
-                    setInputs({...inputs, dice: Number(e.target.value), roll: rollDie(Number(e.target.value)), target: (inputs.target < Number(e.target.value) || inputs.target > Number(e.target.value) * 6) 
-                        ? Number(e.target.value) 
-                        : inputs.target});
+                <label htmlFor="numDiceInput">Number of Dice</label>
+                <input id="numDiceInput" min="1" className="inputs" type="number" placeholder="number of dice" value={inputs.dice} onChange={(e)=> {
+                    validateNumDiceAndUpdateInputs(Number(e.target.value));                    
                 }} />
             </div> 
         </>

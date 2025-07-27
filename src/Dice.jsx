@@ -1,11 +1,13 @@
 import Die from "./Die.jsx";
 import Button from './Button.jsx';
 
-export default function Dice({ inputs, setInputs }) {
+export default function Dice({ roll, onButtonClick }) {
     return (       
         <>
-            <Die inputs={inputs} setInputs={setInputs} />
-            <Button inputs={inputs} setInputs={setInputs} />
+            <div className="group">
+                {roll.map((dieValue, i) => <Die key={i} dieValue={dieValue} />)}
+            </div>
+            <Button onClick={onButtonClick} />
         </>
     )
 }
