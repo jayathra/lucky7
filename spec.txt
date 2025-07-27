@@ -1,0 +1,7 @@
+- LuckyN
+  - An input for the target value of the winning roll
+    - If the user inputs less than one, it should prevent that 
+    - If the user inputs more than possible with the number of dice, it should prevent that
+  - An input for the number of dice
+  - Display the dice rolls
+  - A button for rolling the dice
