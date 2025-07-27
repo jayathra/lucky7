@@ -1,9 +1,7 @@
 import './Die.css'
 
-export default function Die({ inputs }) {
+export default function Die({ dieValue }) {
     return (
-        <div className="group">
-            {inputs.roll.map((d, i) => <div key={i} className="die">{d}</div>)}
-        </div>
+        <div className="die">{dieValue}</div>
     )
 }
