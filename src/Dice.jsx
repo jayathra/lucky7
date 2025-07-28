@@ -1,11 +1,10 @@
 import Die from "./Die.jsx";
-import Button from './Button.jsx';
+import "./Dice.css"
 
-export default function Dice({ inputs, setInputs }) {
+export default function Dice({ diceArray }) {
     return (       
-        <>
-            <Die inputs={inputs} setInputs={setInputs} />
-            <Button inputs={inputs} setInputs={setInputs} />
-        </>
+        <div className="dice">
+            {diceArray.map((dieValue) => <Die dieValue={dieValue} />)}
+        </div>
     )
 }
