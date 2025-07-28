@@ -9,14 +9,23 @@ export default function LuckyN() {
     const TARGET_VAL_INIT = 7;
     const NUM_DICE_INIT = 2;
 
-    const [inputs, setInputs] = useState({targetVal: TARGET_VAL_INIT, diceArray: rollDie(NUM_DICE_INIT)})
+    const [inputs, setInputs] = useState({
+                                    targetVal: TARGET_VAL_INIT,
+                                    diceArray: rollDie(NUM_DICE_INIT)
+                                })
 
     const onClickHandler = () => {
-        setInputs({...inputs, diceArray: rollDie(inputs.diceArray.length)})
+        setInputs({
+            ...inputs,
+            diceArray: rollDie(inputs.diceArray.length)
+        })
     }
 
     const targetValChangeHandler = (e) => {
-        setInputs({...inputs, targetVal: Number(e.target.value)})
+        setInputs({
+            ...inputs,
+            targetVal: Number(e.target.value)
+        })
     }
 
     const numDiceChangeHandler = (e) => {
@@ -25,8 +34,9 @@ export default function LuckyN() {
             ...inputs,
             diceArray: rollDie(numDice),
             targetVal: (inputs.targetVal < numDice || inputs.targetVal > numDice * 6) 
-            ? numDice 
-            : inputs.targetVal});
+                ? numDice 
+                : inputs.targetVal
+        });
     }
 
     return (
